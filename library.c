@@ -2042,8 +2042,7 @@ redis_read_variant_line(RedisSock *redis_sock, REDIS_REPLY_TYPE reply_type,
 		/* Set our response to FALSE */
 		ZVAL_FALSE(z_ret);
 	} else {
-		/* Set our response to TRUE */
-		ZVAL_TRUE(z_ret);
+        ZVAL_STRINGL(z_ret, inbuf, line_size);
 	}
 
     return 0;
